@@ -88,22 +88,27 @@
   const buttons = document.querySelectorAll('nav button.tab-button');
   const sections = document.querySelectorAll('section.content');
 
+  function hideAllSections() {
+    sections.forEach(sec => sec.style.display = 'none');
+  }
+
+  function showSection(tab) {
+    document.getElementById(tab).style.display = 'block';
+  }
+
+  // Ao carregar a página, esconde todas, mostra só 'inicio'
+  hideAllSections();
+  showSection('inicio');
+
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      // Remove active de todos os botões
       buttons.forEach(btn => btn.classList.remove('active'));
-      // Esconde todas as secções
-      sections.forEach(sec => sec.style.display = 'none');
-
-      // Ativa o botão clicado
+      hideAllSections();
       button.classList.add('active');
-      // Mostra a secção correspondente
-      const tab = button.getAttribute('data-tab');
-      document.getElementById(tab).style.display = 'block';
+      showSection(button.getAttribute('data-tab'));
     });
   });
 </script>
 
 </body>
 </html>
-<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Arquivos Cleusia</title><style>body{font-family:sans-serif;margin:0;padding:0}nav{background:#333;padding:10px}nav a{color:white;margin:0 15px;text-decoration:none}section{padding:20px}footer{text-align:center;padding:10px;background:#f0f0f0;margin-top:20px}</style></head><body><nav><a href="#inicio">Início</a><a href="#instituicao">Instituição</a><a href="#autor">Autor</a><a href="#contactos">Contactos</a></nav><section id="inicio"><h1>Bem-vindo aos Arquivos Cleusia</h1><p>Os arquivos constituem a memória viva de uma nação. São conjuntos organizados de documentos produzidos e recebidos por entidades públicas e privadas, cuja conservação é de interesse histórico, administrativo e jurídico. Preservar estes documentos é garantir a continuidade e autenticidade das actividades humanas ao longo do tempo.</p><p>Em Moçambique, os arquivos desempenham um papel crucial na gestão da informação e no acesso ao património documental. Estes instrumentos são fundamentais para a governação, a cidadania e a investigação científica, permitindo reconstituir factos passados e tomar decisões com base em evidências.</p><p>O estudo e o tratamento documental requerem técnicas e princípios da ciência da informação. Assim, os arquivos não são apenas depósitos físicos de papéis antigos, mas centros vivos de conhecimento e cultura que devem ser dinamizados em prol do desenvolvimento.</p></section><section id="instituicao"><h2>Sobre os Arquivos Cleusia</h2><p>Os Arquivos Cleusia são uma instituição dedicada à conservação, organização e disponibilização do património documental moçambicano. A sua missão consiste em promover o acesso à informação e fomentar a cultura arquivística no seio da comunidade.</p><h3>Visitas Guiadas</h3><p>As visitas guiadas são organizadas mediante marcação prévia. Durante estas sessões, os visitantes são acompanhados por um técnico que lhes apresenta as instalações, os fundos documentais e as técnicas de preservação utilizadas, promovendo a educação patrimonial.</p><h3>Leituras</h3><p>O serviço de leituras está disponível para todos os interessados mediante inscrição. Os leitores têm acesso a documentos seleccionados, num espaço apropriado e sob supervisão, garantindo a integridade dos materiais e a comodidade da consulta.</p></section><section id="autor"><h2>Sobre a Autora</h2><p>A autora do projecto Arquivos Cleusia nasceu na cidade de Maputo, capital da República de Moçambique. Desde tenra idade, demonstrou interesse pelos livros, pela memória colectiva e pelo papel da informação na construção da identidade cultural.</p><p>Actualmente, é estudante do curso de Ciências Documentais no Instituto de Ciências Documentais, onde aprofunda os seus conhecimentos sobre gestão documental, arquivística e políticas de informação. A sua motivação reside no desejo de preservar e valorizar a herança documental do seu país.</p></section><section id="contactos"><h2>Contactos</h2><p><strong>Telefone:</strong> +258 86 571 2507</p><p><strong>Email:</strong> arquivoscleusia@gmail.com</p></section><footer><p>&copy; 2025 Arquivos Cleusia. Todos os direitos reservados.</p></footer></body></html>
